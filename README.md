@@ -272,7 +272,7 @@ A continuación se presentan las acciones propuestas a Cemex para recuperar su p
 | **Propuesta 5** | Registrar mejores datos en el censo: por qué punto de venta se compra, qué promoción recibió cada obra y por qué se eligió otra marca (hoy solo se sabe en 45% de los casos; la meta es ≥80%). | Todas las oficinas | 1–2 meses | Equipo de TI y analista de datos | Bajo |
 | **Propuesta 6** | Revisar cada mes el dashboard con semáforos y que la gerencia fije la meta de share. | Gerencia comercial | 1 mes (ya existe) | Analista BI | Bajo |
 
-**¿Cuánto se podría recuperar?** El dashboard incluye un simulador. Si se recupera la mitad de lo perdido en las 5 oficinas prioritarias (Trujillo, Piura, Chimbote, Chiclayo y Cajamarca), el share sube **2.3 puntos** (≈82,911 bolsas por semestre). 
+**¿Cuánto se podría recuperar?** Usando el simulador del dashboard, si se recupera la mitad de lo perdido en las 5 oficinas prioritarias (Trujillo, Piura, Chimbote, Chiclayo y Cajamarca), el share sube **2.3 puntos** (82,911 bolsas por semestre). 
 
 
 
