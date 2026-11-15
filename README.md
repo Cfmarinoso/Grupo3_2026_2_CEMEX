@@ -11,7 +11,7 @@ CEMEX nació en 1906 en Nuevo León, México, como una pequeña planta regional 
 Las operaciones de CEMEX en Peru se dan principalmente bajo un modelo de importación y distribución, consolidándose como un fuerte competidor en el mercado nacional de materiales desde su ingreso en 2007.
 CEMEX ofrece una cartera diversificada de materiales para la construcción y centra su estrategia global en la sostenibilidad, la digitalización y la economía circular.
 
-# Negocio analizado: Autoconstrucción
+### Negocio analizado: Autoconstrucción
 La autoconstrucción es la construcción o ampliación de viviendas por parte de las propias familias, por etapas, con un maestro de obra y comprando los materiales poco a poco en ferreterías y depósitos. En este segmento el cemento se vende en bolsas, y la marca suele ser influida por el maestro de obra y el ferretero, además del dueño de la obra.
 
 Para monitorear este segmento, la empresa realiza un censo de obras, es decir: censadores visitan obras en construcción y registran qué marca de cemento se está usando, en qué etapa de obra, con qué volumen y a qué precio. Con estos registros se calcula el share de Cemex frente a todas las demás marcas.
@@ -50,7 +50,6 @@ El término OLAP (Online Analytical Processing) fue desarrollado por Codd, Codd 
 
 
 ## 4. Diccionario de datos
-
 El Data Warehouse de operaciones logísticas y comerciales está diseñado bajo un modelo dimensional de tipo estrella. Este esquema permite analizar los despachos de materiales desde múltiples perspectivas geográficas, comerciales y temporales para evaluar estrategias comerciales. 
 
 El modelo está compuesto por una tabla de hechos central, FACT_CONSUMOS la cual se relaciona con once dimensiones para contextualizar el análisis operativo. A continuación, se detalla el diccionario de datos consolidado, ajustado a los datos reales de la operación.
@@ -62,55 +61,55 @@ Grano: una encuesta de censador.
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | INT (PK) | Código de la encuesta de censador (`codencuestacensadores`). |
-| visitaID | INT | Código de la visita. **Dimensión degenerada.** |
-| tiempoID | INT (FK) | Fecha de la encuesta → `Tiempo`. |
-| oficinaID | INT (FK) | Oficina responsable → `Oficina`. |
-| ubigeoID | INT (FK) | Ubicación de la obra → `Ubigeo`. |
-| obraID | INT (FK) | Obra censada → `Obra`. |
-| tipoEstructuraID | INT (FK) | Etapa de la obra → `TipoEstructura`. |
-| marcaID | INT (FK) | Marca de cemento encontrada → `Marca`. |
-| unidadMedidaID | INT (FK) | Unidad del volumen → `UnidadMedida`. |
-| motivoID | INT (FK) | Motivo de compra de la marca → `Motivo`. |
-| ejecutivoID | INT (FK) | Ejecutivo que registró la encuesta → `Ejecutivo`. |
-| proveedorID | INT (FK) | Proveedor registrado → `Proveedor`. |
-| competenciaID | INT (FK) | Tipo de competencia y marca competidora → `Competencia`. |
+| id | INT (PK) | Código de la encuesta. |
+| visitaID | INT | Código de la visita (sin dimensión propia, usado para agrupar encuestas por visita). |
+| tiempoID | INT (FK) | Fecha de la encuesta. |
+| oficinaID | INT (FK) | Oficina responsable. |
+| ubigeoID | INT (FK) | Ubicación de la obra. |
+| obraID | INT (FK) | Obra censada. |
+| tipoEstructuraID | INT (FK) | Etapa de la obra. |
+| marcaID | INT (FK) | Marca de cemento encontrada. |
+| unidadMedidaID | INT (FK) | Unidad del volumen. |
+| motivoID | INT (FK) | Motivo de compra. |
+| ejecutivoID | INT (FK) | Ejecutivo que registró la encuesta. |
+| proveedorID | INT (FK) | Proveedor registrado. |
+| competenciaID | INT (FK) | Tipo y marca de competencia. |
 | idSociedad | SMALLINT | Sociedad comercial (6012 / 6052). |
-| sociedadCli6052 | BIT | Indica si el cliente pertenece a la sociedad 6052. |
-| sociedadCli6012 | BIT | Indica si el cliente pertenece a la sociedad 6012. |
-| tipoVisita | TINYINT | Tipo de visita (1 / 2; significado por confirmar con negocio). |
-| estado | BIT | 1 = encuesta activa, 0 = dada de baja. El dashboard usa solo las activas. |
-| posibilidadReversion | BIT | Indicador (sí/no) de posibilidad de reversión registrado en la encuesta. |
-| flagMotivoCpsaa | BIT | Indicador (sí/no) del flag de motivo CPSAA registrado en la encuesta. |
-| **volumen** | DECIMAL(18,2) | **Medida.** Cantidad de cemento de la marca en la obra (bolsas en el análisis). Aditiva. |
-| **volumenRestante** | DECIMAL(18,2) | **Medida.** Volumen restante registrado para la obra. |
-| **precio** | DECIMAL(18,2) | **Medida.** Precio registrado por unidad (S/ por bolsa). No aditiva: se promedia ponderado por volumen. |
-| fechaIngreso | DATE | Fecha de ingreso registrada en la encuesta. |
-| fechaCreacion | DATETIME2 | Fecha y hora de creación del registro. |
+| sociedadCli6052 | BIT | Cliente de la sociedad 6052 (sí/no). |
+| sociedadCli6012 | BIT | Cliente de la sociedad 6012 (sí/no). |
+| tipoVisita | TINYINT | Tipo de visita (1 / 2, por confirmar con negocio). |
+| estado | BIT | 1 = activa, 0 = dada de baja. |
+| posibilidadReversion | BIT | Posibilidad de reversión registrada (sí/no). |
+| flagMotivoCpsaa | BIT | Flag de motivo CPSAA (sí/no). |
+| **volumen** | DECIMAL(18,2) | **Medida.** Bolsas de la marca en la obra. |
+| **volumenRestante** | DECIMAL(18,2) | **Medida.** Volumen restante de la obra. |
+| **precio** | DECIMAL(18,2) | **Medida.** Precio por bolsa (S/). |
+| fechaIngreso | DATE | Fecha de ingreso de la encuesta. |
+| fechaCreacion | DATETIME2 | Fecha y hora de creación. |
 | fechaModificacion | DATETIME2 | Fecha y hora de la última modificación. |
-| checkin | DATETIME2 | Fecha y hora de llegada del censador a la obra. |
-| checkout | DATETIME2 | Fecha y hora de salida del censador de la obra. |
+| checkin | DATETIME2 | Hora de llegada del censador. |
+| checkout | DATETIME2 | Hora de salida del censador. |
 | duracionMin | calculada | Minutos entre check-in y check-out. |
-| checkinLatitud / checkinLongitud | DECIMAL(10,7) | Coordenadas del check-in (se usan para ubicar distritos sin polígono en el mapa). |
+| checkinLatitud / checkinLongitud | DECIMAL(10,7) | Coordenadas del check-in. |
 | checkoutLatitud / checkoutLongitud | DECIMAL(10,7) | Coordenadas del check-out. |
-| acciones | NVARCHAR(500) | Acciones registradas por el censador. |
+| acciones | NVARCHAR(500) | Acciones registradas. |
 | observacion | NVARCHAR(500) | Observaciones del censador. |
 
 #### Dimensión `Tiempo`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | INT (PK) | Fecha en formato numérico YYYYMMDD (ej. 20250315). |
+| id | INT (PK) | Fecha en formato YYYYMMDD. |
 | fecha | DATE | Fecha calendario. |
 | anio | SMALLINT | Año. |
-| trimestre | TINYINT | Trimestre del año (1–4). |
+| trimestre | TINYINT | Trimestre (1–4). |
 | numMes | TINYINT | Número del mes (1–12). |
 | mes | NVARCHAR(12) | Nombre del mes. |
-| anioMes | INT | Año y mes en formato YYYYMM. |
+| anioMes | INT | Año y mes (YYYYMM). |
 | dia | TINYINT | Día del mes. |
-| semanaISO | TINYINT | Número de semana ISO. |
+| semanaISO | TINYINT | Semana ISO del año. |
 | diaSemana | TINYINT | Día de la semana (1 = lunes … 7 = domingo). |
-| nombreDia | NVARCHAR(12) | Nombre del día de la semana. |
+| nombreDia | NVARCHAR(12) | Nombre del día. |
 | esFinDeSemana | BIT | 1 si es sábado o domingo. |
 
 #### Dimensión `Oficina`
@@ -118,75 +117,75 @@ Grano: una encuesta de censador.
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
-| codigo | INT | Código de origen de la oficina (`idoficina`). |
-| nombre | NVARCHAR(100) | Nombre de la oficina (ej. Trujillo, Piura, Chimbote). |
-| idSociedad | INT | Sociedad a la que pertenece la oficina. |
+| codigo | INT | Código de la oficina en origen. |
+| nombre | NVARCHAR(100) | Nombre de la oficina (ej. Trujillo). |
+| idSociedad | INT | Sociedad de la oficina. |
 
 #### Dimensión `Ubigeo`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
-| codigo | CHAR(6) | Ubigeo INEI: departamento (2) + provincia (2) + distrito (2). |
-| codDepartamento / codProvincia / codDistrito | INT | Códigos de cada nivel geográfico. |
-| departamento | NVARCHAR(100) | Nombre del departamento. |
-| provincia | NVARCHAR(100) | Nombre de la provincia. |
-| distrito | NVARCHAR(100) | Nombre del distrito. |
+| codigo | CHAR(6) | Ubigeo INEI (departamento + provincia + distrito). |
+| codDepartamento / codProvincia / codDistrito | INT | Código de cada nivel geográfico. |
+| departamento | NVARCHAR(100) | Departamento. |
+| provincia | NVARCHAR(100) | Provincia. |
+| distrito | NVARCHAR(100) | Distrito. |
 
 #### Dimensión `Obra`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
-| codigo | BIGINT | Código de la obra (`codigoobra`). |
-| idMaestroObra | INT | Maestro de obra de la obra (si hay varios, se toma el de la encuesta más reciente). |
-| tipoEjecucion | NVARCHAR(50) | Tipo de ejecución de la obra (ej. Remodelación). |
+| codigo | BIGINT | Código de la obra. |
+| idMaestroObra | INT | Maestro de obra (el de la encuesta más reciente). |
+| tipoEjecucion | NVARCHAR(50) | Tipo de ejecución (ej. Remodelación). |
 
 #### Dimensión `TipoEstructura`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
-| codigo | INT | Código de origen del tipo de estructura. |
-| nombre | NVARCHAR(100) | Etapa de la obra (ej. muros). |
+| codigo | INT | Código de la etapa en origen. |
+| nombre | NVARCHAR(100) | Etapa de la obra (ej. Muros). |
 
 #### Dimensión `Marca`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
-| codigo | INT | Código de la marca local (`codigotipomarcalocal`). |
-| tipoMarca | NVARCHAR(100) | Descripción del tipo de marca. No se usa para analizar marcas. |
+| codigo | INT | Código de la marca local. |
+| tipoMarca | NVARCHAR(100) | Tipo de marca (no se usa en el análisis). |
 | codMarca | INT | Código de la marca. |
-| marca | NVARCHAR(100) | Nombre de la marca tal como llega del origen. |
-| marcaNormalizada | NVARCHAR(100) | Nombre en mayúsculas, para unir variantes (ej. "Holcim" y "HOLCIM"). |
-| esMarcaPropia | BIT | 1 si es marca propia de Cemex (código de marca 1, "Cemex Cemento"). |
+| marca | NVARCHAR(100) | Nombre de la marca. |
+| marcaNormalizada | NVARCHAR(100) | Nombre en mayúsculas (une variantes como "Holcim" y "HOLCIM"). |
+| esMarcaPropia | BIT | 1 si es marca de Cemex. |
 | codLinea / linea | INT / NVARCHAR(100) | Código y nombre de la línea. |
 | codSublinea / sublinea | INT / NVARCHAR(100) | Código y nombre de la sublínea. |
-| codProducto / producto | INT / NVARCHAR(100) | Código y nombre del producto (el análisis usa *Cemento*). |
+| codProducto / producto | INT / NVARCHAR(100) | Código y nombre del producto (ej. Cemento). |
 
 #### Dimensión `UnidadMedida`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
-| codigo | INT | Código de origen de la unidad. |
-| abreviatura | NVARCHAR(20) | Abreviatura de la unidad (BLS = bolsas). |
+| codigo | INT | Código de la unidad en origen. |
+| abreviatura | NVARCHAR(20) | Abreviatura (BLS = bolsas). |
 
 #### Dimensión `Motivo`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
-| codigo | INT | Código de origen del motivo. |
-| nombre | NVARCHAR(100) | Motivo de compra (ej. Precio, Afinidad, Crédito y precio, Experiencia del servicio, Fuera de cobertura, Gestión, Otro). El código 12 llega sin descripción. |
+| codigo | INT | Código del motivo en origen. |
+| nombre | NVARCHAR(100) | Motivo de compra (ej. Precio, Afinidad, Gestión). |
 
 #### Dimensión `Ejecutivo`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
-| codigo | INT | Código del ejecutivo que creó la encuesta (`codcreadorom`). |
+| codigo | INT | Código del ejecutivo que creó la encuesta. |
 | ejecutivoSAP | INT | Código del ejecutivo en SAP. |
 | nombre | NVARCHAR(150) | Nombre del ejecutivo. |
 
@@ -196,17 +195,19 @@ Grano: una encuesta de censador.
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
 | codigo | BIGINT | Código del proveedor (12 dígitos). |
-| nombre | NVARCHAR(200) | Nombre del proveedor. No viene en el dataset: se completaría desde el sistema comercial. |
+| nombre | NVARCHAR(200) | Nombre del proveedor (no viene en el dataset). |
 
 #### Dimensión `Competencia`
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | INT (PK) | Llave sustituta. El valor −1 significa "no aplica" (~89% de las filas). |
+| id | INT (PK) | Llave sustituta (−1 = no aplica). |
 | codTipoCompetencia | INT | Código del tipo de competencia (0 = no aplica). |
 | tipoCompetencia | NVARCHAR(100) | Tipo de competencia. |
-| codMarcaCemento | INT | Código de la marca de cemento competidora (0 = no aplica). |
-| marcaCemento | NVARCHAR(100) | Marca de cemento competidora. |
+| codMarcaCemento | INT | Código de la marca competidora (0 = no aplica). |
+| marcaCemento | NVARCHAR(100) | Marca competidora. |
+
+> Todas las dimensiones (excepto `Tiempo`) incluyen el miembro `DESCONOCIDO` con `id = -1`.
 
 ## Modelo multidimensional:
 <img width="754" height="626" alt="Modelo_multidimensional" src="https://github.com/user-attachments/assets/dd3b670a-3681-4abb-b46c-75da40783b43" />
