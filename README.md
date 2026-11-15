@@ -195,7 +195,7 @@ Grano: una encuesta de censador.
 | :--- | :--- | :--- |
 | id | INT (PK) | Llave sustituta. |
 | codigo | BIGINT | Código del proveedor (12 dígitos). |
-| nombre | NVARCHAR(200) | Nombre del proveedor (no viene en el dataset). |
+| nombre | NVARCHAR(200) | Nombre del proveedor. |
 
 #### Dimensión `Competencia`
 
