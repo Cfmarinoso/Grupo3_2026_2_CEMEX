@@ -261,9 +261,8 @@ Flujo de datos: **Excel del censo de obras → ETL en Python → datamart relaci
 * **Quién crece:** el mercado creció **5.0%**, Cemex cayó **3.8%** y la competencia creció **48.4%**.
 * **Dónde:** **Trujillo, Piura y Chimbote explican ≈78% de la caída real.** Trujillo bajó de 66.7% a 54.2% (−12.5 pp) y Chimbote de 61.8% a 53.3% (−8.5 pp). Piura bajó 5.2 pp pero pesa mucho por ser la de mayor volumen (912,735 bolsas).
 * **Quién gana:** Mochica (+3.5 pp), Holcim (+3.0 pp) e Inka (+2.5 pp). Cada una crece en zonas distintas: Inka en Trujillo y Piura, Mochica en Chimbote y Holcim en Cajamarca y Chiclayo.
-* **Precio:** Cemex vende 8.4% más caro (S/ 32.63 vs S/ 30.10 por bolsa) y "precio" es el motivo de compra de la competencia en 61% de los casos registrados. Pero el índice casi no cambió (107 → 108) mientras el share cayó 7 pp, y la correlación por oficina es moderada (r = −0.46, 13 oficinas). El precio influye, pero **no explica solo la caída**.
-* **Medición:** de los −7.0 pp, −4.9 pp son caída real y **−2.0 pp (≈29%) vienen de cambios en la cobertura del censo**. Además, el motivo de compra solo está registrado en 45% de los casos.
-
+* **Precio:** Cemex vende 8.4% más caro (S/ 32.63 vs S/ 30.10 por bolsa) y "precio" es el motivo de compra de la competencia en 61% de los casos registrados. Pero el índice casi no cambió (107 a 108) mientras el share cayó 7 pp, y la correlación por oficina es moderada (r = −0.46, 13 oficinas). El precio influye, pero **no explica solo la caída**.
+* **Medición:** de los −7.0 pp, −4.9 pp son caída real y **−2.0 pp (≈29%) vienen de cambios en la cobertura del censo**.
 
 ### 4.5 Propuesta de mejora y factibilidad
 
