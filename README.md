@@ -16,7 +16,7 @@ La autoconstrucción es la construcción o ampliación de viviendas por parte de
 
 Para monitorear este segmento, la empresa realiza un censo de obras, es decir: censadores visitan obras en construcción y registran qué marca de cemento se está usando, en qué etapa de obra, con qué volumen y a qué precio. Con estos registros se calcula el share de Cemex frente a todas las demás marcas.
 
-En los datos, la marca propia es "Cemex Cemento". Las competidoras principales son Mochica, Inka, Holcim, Quisqueya, Qhuna y La Nacional.
+En los datos, la marca propia es "Cemex Cemento". Mientras que las competidoras principales son Mochica, Inka, Holcim, Quisqueya, Qhuna y La Nacional.
 
 ## 2. Problemática
 La gerencia comercial ha observado una caída sostenida del market share del cemento Cemex en el segmento de autoconstrucción en los últimos 6 meses del año 2025.
@@ -227,12 +227,12 @@ Flujo de datos: **Excel del censo de obras → ETL en Python → datamart relaci
 | Python (pandas, numpy, openpyxl) | ETL: limpieza, carga de dimensiones y hechos, y cálculo de indicadores. |
 | pyodbc | Conexión entre Python y la base de datos. |
 | SQL | Creación del datamart y consultas analíticas. |
-| Dash + Plotly (y sqlglot) | Dashboard interactivo con filtros, mapas y gráficos. sqlglot valida las consultas SQL de la pestaña 5. Se eligió por estar basado en la plantilla vista en clase y por trabajar todo en Python. |
-| Railway | Despliegue de la aplicación. Se eligió porque es una herramienta gratuita que nos permite tener un **link público**, como pide la rúbrica. |
+| Dash + Plotly (y sqlglot) | Dashboard interactivo con filtros, mapas y gráficos.
+| Railway | Despliegue de la aplicación. Se eligió porque es una herramienta gratuita que nos permite tener un **link público**. |
 
 ### 4.2 Definición de indicadores
 
-**Contexto:** un censador visita una obra (vivienda en construcción) y registra la marca de cemento y las bolsas que usa. Marca propia = Cemex; competencia = las demás marcas. **pp** = puntos porcentuales (la diferencia entre dos porcentajes).
+**Contexto:** un censador visita una obra (vivienda en construcción) y registra la marca de cemento y las bolsas que usa. Marca propia = Cemex; competencia = las demás marcas. **pp** = puntos porcentuales.
 
 | Indicador | Qué mide | Cálculo |
 | :--- | :--- | :--- |
