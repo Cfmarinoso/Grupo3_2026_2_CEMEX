@@ -181,12 +181,16 @@ Tabla central que consolida las métricas cuantitativas y transaccionales del ne
 | descuento | DECIMAL | Medida: Monto total de descuento o promoción aplicado. |
 | importefletefactura| DECIMAL | Medida: Costo del flete logístico asociado a la entrega. |
 ## 5. Modelo multidimensional
-<img width="1600" height="1310" alt="WhatsApp Image 2026-09-25 at 3 19 04 PM" src="https://github.com/user-attachments/assets/45389707-20a3-4f47-acbc-68ffd625fde1" />
-
-
+<img width="754" height="626" alt="Modelo_multidimensional" src="https://github.com/user-attachments/assets/dd3b670a-3681-4abb-b46c-75da40783b43" />
 
 ## 6. Dataset
 https://drive.google.com/drive/folders/1pt_AFsa8XqcQDsAzD5DGkNqI7F3tiFYS?usp=sharing 
+
+## 7. Dashboard e interfaz para consultas SQL
+https://cemex-dash.up.railway.app/
+
+## 8. Presentación
+https://www.canva.com/design/DAHWKtakACw/rGvoX6XlY_uhJObBKPuAjg/edit
 
 ## 7. Referencias
 Chaudhuri, S., & Dayal, U. (1997). An overview of data warehousing and OLAP technology. ACM SIGMOD Record, 26(1), 65–74. https://doi.org/10.1145/248603.248616
