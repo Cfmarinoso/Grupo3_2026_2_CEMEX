@@ -271,38 +271,34 @@ A continuación se presentan las acciones propuestas a Cemex para recuperar su p
 
 | # | Qué hacer | Dónde | Plazo | Quién participa | Costo |
 | :-- | :--- | :--- | :--- | :--- | :--- |
-| **A1** | Concentrar el esfuerzo en las oficinas donde más se pierde, con una meta de share para cada mes. | Trujillo, Piura, Chimbote | 0–3 meses | Gerencia comercial, jefes de oficina y vendedores | Medio |
-| **A2** | Contrarrestar a cada competidor en su zona: visitar obras y ferreterías, y dar beneficios a maestros de obra y ferreteros para que sigan eligiendo Cemex. | Inka en Trujillo y Piura; Mochica en Chimbote; Holcim en Cajamarca y Chiclayo | 1–3 meses | Ejecutivos comerciales | Medio |
-| **A3** | Dar descuentos o puntos solo donde Cemex es más caro y pierde clientes, y comparar con oficinas sin promoción para saber si funcionó. | Oficinas con precio alto y share en caída | Piloto de 3 meses | Marketing y finanzas | Variable (presupuesto acotado) |
-| **A4** | Revisar qué hacen distinto las oficinas que sí ganan share y aplicarlo en las demás. | Yurimaguas, Huamachuco, Tumbes | 1 mes | Jefes de oficina y un analista | Bajo |
-| **A5** | Registrar mejores datos en el censo: por qué punto de venta se compra, qué promoción recibió cada obra y por qué se eligió otra marca (hoy solo se sabe en 45% de los casos; la meta es ≥80%). | Todas las oficinas | 1–2 meses | Equipo de TI y analista de datos | Bajo |
-| **A6** | Revisar cada mes el dashboard con semáforos y que la gerencia fije la meta de share. | Gerencia comercial | 1 mes (ya existe) | Analista BI | Bajo |
+| **Propuesta 1** | Concentrar el esfuerzo en las oficinas donde más se pierde, con una meta de share para cada mes. | Trujillo, Piura, Chimbote | 0–3 meses | Gerencia comercial, jefes de oficina y vendedores | Medio |
+| **Propuesta 2** | Contrarrestar a cada competidor en su zona: visitar obras y ferreterías, y dar beneficios a maestros de obra y ferreteros para que sigan eligiendo Cemex. | Inka en Trujillo y Piura; Mochica en Chimbote; Holcim en Cajamarca y Chiclayo | 1–3 meses | Ejecutivos comerciales | Medio |
+| **Propuesta 3** | Dar descuentos o puntos solo donde Cemex es más caro y pierde clientes, y comparar con oficinas sin promoción para saber si funcionó. | Oficinas con precio alto y share en caída | Piloto de 3 meses | Marketing y finanzas | Variable (presupuesto acotado) |
+| **Propuesta 4** | Revisar qué hacen distinto las oficinas que sí ganan share y aplicarlo en las demás. | Yurimaguas, Huamachuco, Tumbes | 1 mes | Jefes de oficina y un analista | Bajo |
+| **Propuesta 5** | Registrar mejores datos en el censo: por qué punto de venta se compra, qué promoción recibió cada obra y por qué se eligió otra marca (hoy solo se sabe en 45% de los casos; la meta es ≥80%). | Todas las oficinas | 1–2 meses | Equipo de TI y analista de datos | Bajo |
+| **Propuesta 6** | Revisar cada mes el dashboard con semáforos y que la gerencia fije la meta de share. | Gerencia comercial | 1 mes (ya existe) | Analista BI | Bajo |
 
 **¿Cuánto se podría recuperar?** El dashboard incluye un simulador. Si se recupera la mitad de lo perdido en las 5 oficinas prioritarias (Trujillo, Piura, Chimbote, Chiclayo y Cajamarca), el share sube **2.3 puntos** (≈82,911 bolsas por semestre). 
 
 
 
 ## 5. Conclusiones
+Con base en lo descubierto en los resultados con las herramientas de BI, presentamos las siguientes conclusiones: 
 
 1. **El share cae rápido y es reciente:** de 83.1% a 76.2% en un semestre, con quiebre en junio 2025, mientras el mercado crece 5.0%.
 2. **La competencia absorbe el crecimiento:** Mochica, Inka y Holcim crecen en zonas distintas, por lo que una estrategia única sería poco eficaz.
 3. **El problema está concentrado:** tres oficinas (Trujillo, Piura y Chimbote) explican ≈78% de la caída real.
-4. **El precio influye, pero no lo explica todo:** Cemex es 8% más caro, pero esa diferencia casi no cambió (107 → 108) mientras el share cayó 7 pp.
-5. **Parte de la caída es de medición:** ≈29% del cambio (−2.0 pp) viene de la cobertura del censo, y el motivo de compra solo está registrado en 45% de los casos.
-6. **La solución de BI cumple su objetivo:** el datamart (1 tabla de hechos y 11 dimensiones) y el dashboard de 5 pestañas permiten ubicar dónde, cuándo y frente a quién cae el share, simular acciones y monitorear 8 indicadores con semáforo. Sus límites: solo cubre cemento en bolsa en autoconstrucción y no tiene campo de canal de venta.
+4. **Parte de la caída es de medición:** 29% del cambio (−2.0 pp) viene de la cobertura del censo, y el motivo de compra solo está registrado en 45% de los casos.
+5. **La solución de BI cumple su objetivo:** el datamart propuesto (1 tabla de hechos y 11 dimensiones) y el dashboard de 5 pestañas permiten ubicar dónde, cuándo y frente a quién cae el share, simular acciones y monitorear 8 indicadores con semáforo.
 
 
 ## 6. Recomendaciones
-
-1. **Priorizar Trujillo, Piura y Chimbote** con metas mensuales y seguimiento semanal (A1).
-2. **Responder por competidor y por zona**, no con una campaña nacional (A2).
-3. **No usar descuento general:** probar promociones focalizadas con grupo de control (A3).
-4. **Aprender de las oficinas que suben** (Yurimaguas, Huamachuco, Tumbes) (A4).
-5. **Mejorar la captura de datos:** agregar canal de venta y promoción aplicada, y completar el motivo de compra (A5). Sin esto no se puede medir el retorno de la promoción de puntos.
-6. **Definir una meta de share con la gerencia** y revisar el tablero cada mes (A6).
-7. **Validar las acciones con el equipo comercial** antes de ejecutarlas: son hipótesis construidas a partir de los datos.
-8. **Trabajo futuro:** incluir otras líneas (concreto, bloques y adoquines), agregar datos de despachos facturados y ampliar el rango de años.
-
+1. **Priorizar Trujillo, Piura y Chimbote** con metas mensuales y seguimiento semanal.
+2. **Responder con campañas por competidor y por zona**, no con una campaña nacional.
+3. **No usar un descuento general:** probar promociones focalizadas con grupo de control.
+4. **Aprender de las oficinas que suben** tales como Yurimaguas, Huamachuco y Tumbes.
+5. **Definir una meta de share con la gerencia** y revisar el tablero cada mes.
+6. **Trabajo futuro:** incluir otras líneas (concreto, bloques y adoquines), agregar datos de despachos facturados y ampliar el rango de años.
 
 ## 7. Dataset
 https://drive.google.com/drive/folders/1pt_AFsa8XqcQDsAzD5DGkNqI7F3tiFYS?usp=sharing 
