@@ -54,8 +54,6 @@ El Data Warehouse de operaciones logísticas y comerciales está diseñado bajo 
 
 El modelo está compuesto por una tabla de hechos central, FACT_CONSUMOS la cual se relaciona con once dimensiones para contextualizar el análisis operativo. A continuación, se detalla el diccionario de datos consolidado, ajustado a los datos reales de la operación.
 
-### 3.3 Diccionario de datos
-
 #### Tabla de hechos: `fact_consumo`
 Grano: una encuesta de censador.
 
@@ -211,14 +209,14 @@ Grano: una encuesta de censador.
 ## Modelo multidimensional:
 <img width="754" height="626" alt="Modelo_multidimensional" src="https://github.com/user-attachments/assets/dd3b670a-3681-4abb-b46c-75da40783b43" />
 
-## 4. Diseño y análisis de los resultados de Business Intelligence
+## 5. Diseño y análisis de los resultados de Business Intelligence
 
 A continuación, se creó un dashboard interactivo con el fin de que la gerencia comercial pueda responder qué está pasando con la participación de mercado de Cemex: **cuándo empezó a caer, en qué zonas, frente a qué marcas y si el precio influye**. Además de diagnosticar, permite simular el efecto de las acciones de mejora y monitorear cada mes los indicadores clave con semáforos. Este dashboard está publicado en Railway, por lo que cualquier usuario puede consultarlo desde un link público.
 
 ## Enlace al dashboard:
 https://cemex-dash.up.railway.app/
 
-### 4.1 Arquitectura y herramientas
+### 5.1 Arquitectura y herramientas
 
 Flujo de datos: **Excel del censo de obras → ETL en Python → datamart relacional (esquema estrella) → dashboard web → publicado en Railway.**
 
@@ -230,7 +228,7 @@ Flujo de datos: **Excel del censo de obras → ETL en Python → datamart relaci
 | Dash + Plotly (y sqlglot) | Dashboard interactivo con filtros, mapas y gráficos.
 | Railway | Despliegue de la aplicación. Se eligió porque es una herramienta gratuita que nos permite tener un **link público**. |
 
-### 4.2 Definición de indicadores
+### 5.2 Definición de indicadores
 
 **Contexto:** un censador visita una obra (vivienda en construcción) y registra la marca de cemento y las bolsas que usa. Marca propia = Cemex; competencia = las demás marcas. **pp** = puntos porcentuales.
 
@@ -245,7 +243,7 @@ Flujo de datos: **Excel del censo de obras → ETL en Python → datamart relaci
 | **Efecto tasa y mezcla** | Divide el cambio total en dos: *tasa* (el share cayó dentro de una oficina) y *mezcla* (cambió el peso de cada oficina en los datos). | `tasa + mezcla = cambio total` |
 | **Semáforo** | Estado del indicador según su brecha. Una oficina está "en alerta" si su share cae 3 pp o más. | En meta: ≥ −1 pp · Alerta: −1 a −3 pp · Crítico: < −3 pp |
 
-### 4.3 Estructura del dashboard
+### 5.3 Estructura del dashboard
 **Filtros globales:** periodo, comparación (periodo anterior o año anterior), meta, departamento, oficina, etapa de obra y tipo de ejecución.
 
 | Pestaña | Qué representa |
@@ -256,10 +254,10 @@ Flujo de datos: **Excel del censo de obras → ETL en Python → datamart relaci
 | **4. Propuesta** | Priorización por oficina y simulador de acciones. |
 | **5. Consultas SQL** | Consola para consultar el datamart y descargar resultados. |
 
-### 4.4 Resultados
+### 5.4 Resultados
 La participación de mercado (market share) de Cemex en la autoconstrucción del norte del Perú cayó en 7 puntos porcentuales (pp), de 83.1% a 76.2% en un semestre y se ubica 7.5 pp por debajo del mismo periodo del año anterior, por lo que no se trata de estacionalidad: tras su máximo en marzo de 2025 (85.2%), cruzó la meta en junio de 2025, así que la caída es reciente y rápida. Mientras el mercado creció 5.0%, Cemex cayó 3.8% y la competencia creció 48.4%. Trujillo, Piura y Chimbote explican ≈78% de la caída real: Trujillo bajó de 66.7% a 54.2% (−12.5 pp), Chimbote de 61.8% a 53.3% (−8.5 pp) y Piura, aunque solo cayó 5.2 pp, pesa mucho por ser la zona de mayor volumen (912,735 bolsas). Quienes ganan terreno son Mochica (+3.5 pp), Holcim (+3.0 pp) e Inka (+2.5 pp), cada uno en zonas distintas: Inka en Trujillo y Piura, Mochica en Chimbote y Holcim en Cajamarca y Chiclayo. El precio influye, pero no explica por sí solo la caída: Cemex vende 8.4% más caro (S/ 32.63 vs S/ 30.10 por bolsa) y aunque el "precio” es el motivo de compra de la competencia en 61% de los casos registrados, el índice de precio casi no cambió (107 → 108) mientras el share cayó 7 pp, y la correlación por oficina es moderada (r = −0.46, 13 oficinas). Finalmente, estas cifras deben leerse con cautela: de la caída de 7 pp , 4.9  pp corresponden a una caída real y −2.0 pp (29% aproximadamente) provienen de cambios en la cobertura del censo, y el motivo de compra solo está registrado en 45% de los casos.
 
-### 4.5 Propuesta de mejora y factibilidad
+### 5.5 Propuesta de mejora y factibilidad
 
 A continuación se presentan las acciones propuestas a Cemex para recuperar su participación de mercado.
 
@@ -276,7 +274,7 @@ A continuación se presentan las acciones propuestas a Cemex para recuperar su p
 
 
 
-## 5. Conclusiones
+## 6. Conclusiones
 Con base en lo descubierto en los resultados con las herramientas de BI, presentamos las siguientes conclusiones: 
 
 1. **El share cae rápido y es reciente:** de 83.1% a 76.2% en un semestre, con quiebre en junio 2025, mientras el mercado crece 5.0%.
@@ -286,7 +284,7 @@ Con base en lo descubierto en los resultados con las herramientas de BI, present
 5. **La solución de BI cumple su objetivo:** el datamart propuesto (1 tabla de hechos y 11 dimensiones) y el dashboard de 5 pestañas permiten ubicar dónde, cuándo y frente a quién cae el share, simular acciones y monitorear 8 indicadores con semáforo.
 
 
-## 6. Recomendaciones
+## 7. Recomendaciones
 1. **Priorizar Trujillo, Piura y Chimbote** con metas mensuales y seguimiento semanal.
 2. **Responder con campañas por competidor y por zona**, no con una campaña nacional.
 3. **No usar un descuento general:** probar promociones focalizadas con grupo de control.
@@ -294,13 +292,13 @@ Con base en lo descubierto en los resultados con las herramientas de BI, present
 5. **Definir una meta de share con la gerencia** y revisar el tablero cada mes.
 6. **Trabajo futuro:** incluir otras líneas (concreto, bloques y adoquines), agregar datos de despachos facturados y ampliar el rango de años.
 
-## 7. Dataset
+## 8. Dataset
 https://drive.google.com/drive/folders/1pt_AFsa8XqcQDsAzD5DGkNqI7F3tiFYS?usp=sharing 
 
-## 8. Presentación
+## 9. Presentación
 https://www.canva.com/design/DAHWKtakACw/rGvoX6XlY_uhJObBKPuAjg/edit
 
-## 9. Referencias
+## 10. Referencias
 Chaudhuri, S., & Dayal, U. (1997). An overview of data warehousing and OLAP technology. ACM SIGMOD Record, 26(1), 65–74. https://doi.org/10.1145/248603.248616
 
 Codd, E. F., Codd, S. B., & Salley, C. T. (1993). Providing OLAP (On-line analytical processing) to user-analysts: An IT mandate. E.F. Codd & Associates. https://staff.icar.cnr.it/manco/Teaching/2006/datamining/articoli/olapcoddwp.pdf
